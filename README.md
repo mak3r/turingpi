@@ -5,7 +5,15 @@
 	* https://github.com/raspberrypi/usbboot
 	* on a current mac, I simply did `make` 
 1. [Configure the cluster bus](https://docs.turingpi.com/turing_pi/children/i2c_cluster_bus/)
-	* If an additional I2C controller is used, also do this for that device
+	* If an additional I2C controller is used
+		* do _not_ set the pin values in /boot/config.txt
+		* do set the `i2c-rtc` real time clock data
+		* Wiring between the external I2C device and the turing pi
+			* **IMPORTANT only wire up 3.3V if the external I2C device is using that as it's power source**
+			* SDA <-> SDA
+			* SCL <-> SCL
+			* GND <-> GND : required on RPi device GPIO
+			* 3.3V <-> X
 
 ## Flash the eMMC with an OS
 1. insert the module in the device in flash mode
