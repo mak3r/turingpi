@@ -9,11 +9,11 @@
 		* do _not_ set the pin values in /boot/config.txt
 		* do set the `i2c-rtc` real time clock data
 		* Wiring between the external I2C device and the turing pi
-			* **IMPORTANT only wire up 3.3V if the external I2C device is using that as it's power source**
+			* **IMPORTANT only wire up VCC (3.3v) if the external I2C device is using that as it's power source**
 			* SDA <-> SDA
 			* SCL <-> SCL
 			* GND <-> GND : required on RPi device GPIO
-			* 3.3V <-> X
+			* VCC <-> X
 
 ## Flash the eMMC with an OS
 1. insert the module in the device in flash mode
