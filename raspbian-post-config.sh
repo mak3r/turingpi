@@ -25,3 +25,6 @@ if ! grep --quiet -E "dtoverlay=i2c" "$BOOT_VOLUME/config.txt"; then
 	EOF
 fi
 
+if ! grep --quiet -E "cgroup" "$BOOT_VOLUME/cmdline.txt"; then
+	sed -i 's/$/ cgroup_memory=1 cgroup_enable=memory/' "/$BOOT_VOLUME/cmdline.txt"
+fi
