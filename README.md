@@ -56,3 +56,15 @@ These steps will vary depending on the OS selected. Commands will vary depending
 	dtoverlay=i2c-rtc,mcp7940x
 	```
 * set the same locale for all in raspi-config
+
+# Kubernetes
+
+## Scripts to install in various configurations
+
+* [cluster-7mw.sh](./scripts/cluster-7mw.sh) - Install 7 clusters with master/worker capability
+* [cluster-1m6w.sh](./scripts/cluster-1m6w.sh) - Install 1 cluster with a single master and 6 worker nodes.
+
+## Clean k3s off the nodes
+
+* [clean-all.sh](./scripts/clean-all.sh) - clean it from all nodes
+
