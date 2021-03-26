@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BOOT_VOLUME="/Volumes/boot"
+BOOT_VOLUME="/boot"
 
 if [ "$1" != "" ]; then 
 	BOOT_VOLUME=$1
@@ -27,4 +27,16 @@ fi
 
 if ! grep --quiet -E "cgroup" "$BOOT_VOLUME/cmdline.txt"; then
 	sed -i 's/$/ cgroup_memory=1 cgroup_enable=memory/' "/$BOOT_VOLUME/cmdline.txt"
+fi
+
+# Disable swap
+if systemctl list-unit-files --state enabled | grep dphys-swapfile; then
+	systemctl stop dphys-swapfile.service
+	systemctl disable dphys-swapfile.service
+fi
+
+if iptables --version | grep nf_tables; then
+	iptables -F
+	update-alternatives --set iptables /usr/sbin/iptables-legacy
+	update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
 fi
