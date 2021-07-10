@@ -1,2 +1,3 @@
 usbboot/
 local/
+kubeconfig*
