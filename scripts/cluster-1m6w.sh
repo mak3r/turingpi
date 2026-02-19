@@ -1,8 +1,9 @@
 #!/bin/sh
 
 #VERSION="v1.18.16+k3s1"
-VERSION="v1.19.8+k3s1"
+#VERSION="v1.19.8+k3s1"
 #VERSION="v1.20.4+k3s1"
+VERSION="v1.21.5+k3s2"
 
 while getopts 'p' c
 do
